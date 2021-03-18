@@ -1,0 +1,28 @@
+{
+    "pessoas": [
+        {
+            "id": 1,
+            "nome": "Leandro Pereira",
+            "dataNascimento": "06/09/91",
+            "estadoCivil": "Casado",
+            "nomeParceiro": "Susane Maria",
+            "dataNascimentoParceiro": "15/07/92"
+        },
+        {
+            "id": 2,
+            "nome": "Susane Maria",
+            "dataNascimento": "15/07/92",
+            "estadoCivil": "Casado",
+            "nomeParceiro": "Leandro Pereira",
+            "dataNascimentoParceiro": "06/09/91"
+        },
+        {
+            "id": 3,
+            "nome": "Cássio Ramos",
+            "dataNascimento": "01/09/10",
+            "estadoCivil": "Solteiro",
+            "nomeParceiro": "",
+            "dataNascimentoParceiro": ""
+        }
+    ]
+}
