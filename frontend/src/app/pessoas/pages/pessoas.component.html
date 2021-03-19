@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <mat-card-content>
+    Abaixo serão listados os registros encontrados em nossa base de dados.
+    Para pesquisar, basta digitar no campo que será filtrado pelo nome da pessoa.
+    Para cadastrar uma nova pessoa, basta clicar no botão que você será direcionado ao formulário.
+  </mat-card-content>
+
+  <div class="d-flex justify-content-between">
+    <mat-form-field>
+      <input [(ngModel)]="searchText" matInput placeholder="Pesquisar">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" routerLink="/pessoas/novo">
+      <mat-icon>add_circle_outline</mat-icon> Criar novo registro
+    </button>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">Estado civil</th>
+        <th scope="col">Nome do parceiro</th>
+        <th scope="col">Data nasc. do parceiro</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!dataSource">
+        <td class="text-muted" colspan="100%">Nenhum registro encontrado.</td>
+      </tr>
+      <tr *ngFor="let item of dataSource | filter: searchText">
+        <td>{{ item.nome }}</td>
+        <td>{{ item.dataNascimento | dateFormat }}</td>
+        <td>{{ item.estadoCivil | estadoCivil | null }}</td>
+        <td>{{ item.nomeParceiro | null }}</td>
+        <td>{{ item.dataNascimentoParceiro | dateFormat | null }}</td>
+        <td class="p-0">
+          <button mat-icon-button (click)="alterar(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="remover(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>

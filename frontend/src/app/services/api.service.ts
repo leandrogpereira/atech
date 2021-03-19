@@ -20,6 +20,30 @@ export class ApiService {
       .catch(response => response.error);
   }
 
+  post(path, params = {}) {
+    return this.http
+      .post(this.apiUrl(path), params, this.getOptions())
+      .toPromise()
+      .then(response => response)
+      .catch(response => response);
+  }
+
+  delete(path, params = {}) {
+    return this.http
+      .delete(this.apiUrl(path), this.getOptions({}, params))
+      .toPromise()
+      .then(response => response)
+      .catch(response => response);
+  }
+
+  patch(path, params = {}) {
+    return this.http
+      .patch(this.apiUrl(path), params, this.getOptions())
+      .toPromise()
+      .then(response => response)
+      .catch(response => response);
+  }
+
   private apiUrl(path) {
     const url = [this.baseUrl];
 

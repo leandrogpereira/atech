@@ -1,0 +1,88 @@
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+
+  <form *ngIf="form" class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group row mb-3">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" id="nome" required>
+          <mat-error *ngIf="form.get('nome').hasError('nomeInvalido')">
+            É obrigatório o preenchimento utilizando somente letras.
+          </mat-error>
+          <mat-error *ngIf="form.get('nome').hasError('required') || (form.get('nome').status !== 'VALID' && !form.get('nome').hasError('nomeInvalido'))">
+            É obrigatório o preenchimento do nome com no mínimo 5 caracteres.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Data de nascimento</mat-label>
+          <input type="date" matInput formControlName="dataNascimento" required>
+          <mat-error *ngIf="form.get('dataNascimento').hasError('required')">
+            É obrigatório o preenchimento da data de nascimento.
+          </mat-error>
+          <mat-error *ngIf="form.get('dataNascimento').hasError('menorDeIdade') && !form.get('dataNascimento').hasError('required')">
+            É obrigatório que a pessoa tenha idade superior ou igual a 18 anos.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-group row mb-3">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Estado civil</mat-label>
+          <select matNativeControl required (change)="verificaEstadoCivil(); limpaInputParceiro()" formControlName="estadoCivil">
+            <option value="1">Casado(a)</option>
+            <option value="2">Solteiro(a)</option>
+            <option value="3">Viúvo(a)</option>
+            <option value="4">Separado(a) judicialmente</option>
+            <option value="5">Divorciado(a)</option>
+          </select>
+          <mat-error *ngIf="form.get('estadoCivil').hasError('required')">
+            É obrigatório selecionar o estado civil.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="habilitaParceiro" class="form-group row mb-3">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Nome parceiro</mat-label>
+          <input matInput formControlName="nomeParceiro" id="nomeParceiro" required>
+          <mat-error *ngIf="form.get('nomeParceiro').hasError('nomeInvalido')">
+            É obrigatório o preenchimento utilizando somente letras.
+          </mat-error>
+          <mat-error *ngIf="form.get('nomeParceiro').hasError('required')
+            || (form.get('nomeParceiro').status !== 'VALID' && !form.get('nomeParceiro').hasError('nomeInvalido'))">
+            É obrigatório o preenchimento do nome com no mínimo 5 caracteres.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Data de nascimento do(a) parceiro(a)</mat-label>
+          <input type="date" matInput formControlName="dataNascimentoParceiro" required>
+          <mat-error *ngIf="form.get('dataNascimentoParceiro').hasError('required')">
+            É obrigatório o preenchimento da data de nascimento do parceiro.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- nome: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(80)]],
+      dataNascimento: [null, [Validators.required]],
+      estadoCivil: [null, [Validators.required]],
+      nomeParceiro: [null],
+      dataNascimentoParceiro: [null] -->
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+      <button mat-raised-button (click)="voltar()" class="mr-1">Voltar</button>
+      <button type="submit" mat-raised-button color="primary">Salvar</button>
+    </div>
+  </form>
+</mat-card>

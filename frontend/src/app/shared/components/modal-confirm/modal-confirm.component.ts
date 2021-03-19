@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-modal-confirm',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-confirm.component.scss']
 })
 export class ModalConfirmComponent implements OnInit {
+
+  @Input() nomePessoa: string;
 
   constructor() { }
 
