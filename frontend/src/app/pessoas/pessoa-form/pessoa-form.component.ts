@@ -63,11 +63,11 @@ export class PessoaFormComponent implements OnInit {
       if (this.id) {
         this.apiService.patch(`pessoas/${this.id}`, this.form.value)
           .then(() => this.router.navigate([`/pessoas`]))
-          .catch(data => console.log(data));
+          .catch(error => console.log(error.error));
       } else {
         this.apiService.post('pessoas', this.form.value)
           .then(() => this.router.navigate([`/pessoas`]))
-          .catch(data => console.log(data));
+          .catch(error => console.log(error.error));
       }
     }
   }

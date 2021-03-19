@@ -17,7 +17,7 @@ export class ApiService {
     .get(this.apiUrl(path), this.getOptions(params))
       .toPromise()
       .then(response => response)
-      .catch(response => response.error);
+      .catch(response => response);
   }
 
   post(path, params = {}) {

@@ -11,7 +11,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class PessoasComponent implements OnInit {
 
-  public dataSource: any;
+  public dataSource = [{}];
   public title = this.route.snapshot.data.title;
   public searchText: string;
 
@@ -36,11 +36,11 @@ export class PessoasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.apiService.delete(`pessoas/${item.id}`)
-          .then(sucess => {
+          .then(() => {
             this.loadData();
             this.searchText = '';
           })
-          .catch(error => console.log(`Erro: ` + error.error));
+          .catch(error => console.log(error.error));
       };
     });
   }

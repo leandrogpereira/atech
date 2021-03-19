@@ -19,7 +19,7 @@
       <div class="col-sm-6">
         <mat-form-field>
           <mat-label>Data de nascimento</mat-label>
-          <input type="date" matInput formControlName="dataNascimento" required>
+          <input type="date" matInput formControlName="dataNascimento" max="9999-12-31" required>
           <mat-error *ngIf="form.get('dataNascimento').hasError('required')">
             É obrigatório o preenchimento da data de nascimento.
           </mat-error>
@@ -66,19 +66,13 @@
       <div class="col-sm-6">
         <mat-form-field>
           <mat-label>Data de nascimento do(a) parceiro(a)</mat-label>
-          <input type="date" matInput formControlName="dataNascimentoParceiro" required>
+          <input type="date" matInput formControlName="dataNascimentoParceiro" max="9999-12-31" required>
           <mat-error *ngIf="form.get('dataNascimentoParceiro').hasError('required')">
             É obrigatório o preenchimento da data de nascimento do parceiro.
           </mat-error>
         </mat-form-field>
       </div>
     </div>
-
-    <!-- nome: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(80)]],
-      dataNascimento: [null, [Validators.required]],
-      estadoCivil: [null, [Validators.required]],
-      nomeParceiro: [null],
-      dataNascimentoParceiro: [null] -->
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
       <button mat-raised-button (click)="voltar()" class="mr-1">Voltar</button>

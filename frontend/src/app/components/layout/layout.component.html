@@ -1,16 +1,16 @@
 <header class="container-fluid">
   <mat-toolbar color="primary">
-    <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Atech</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <span class="spacer"></span>
+    <button mat-icon-button>
       <mat-icon>person</mat-icon>
     </button>
   </mat-toolbar>
 </header>
-<mat-drawer-container class="example-container">
+<mat-drawer-container>
   <mat-drawer #drawer>
     <mat-nav-list>
       <a mat-list-item href="/pessoas">
