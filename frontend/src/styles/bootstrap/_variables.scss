@@ -1,46 +1,10 @@
 $white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$opacity: rgba(0, 0, 0, 0.7);
 $black: #000;
-
-$yellow: #FAE365;
-$green: #95F67D;
-$purple: #7386D5;
-$red: #E53104;
-
-$blue-light: #B0E0E6;
-$blue: #4e73df;
-$blue-darken: #224abe;
-
-$primary: $blue;
-$secondary: $blue-darken;
-$success: $green;
-$danger: $red;
-$warning: $yellow;
-$info: $blue-light;
-$light: $gray-200;
-$dark: $gray-600;
 
 $width-100: 100%;
 $height-100: 100vh;
 
-$font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-size-base: .875rem;
+$font-family-sans-serif: Roboto, "Helvetica Neue", Arial, sans-serif;
 
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-semi-bold: 600;
-$font-weight-bold: 700;
-
-$spacer: 1rem;
-$spacers: (
-  6: ($spacer * 3.5)
-);
+$font-size: 14px;
+$font-weight: 500;

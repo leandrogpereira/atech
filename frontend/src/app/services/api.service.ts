@@ -1,12 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  private baseUrl = "http://localhost:3001/";
 
   constructor(
     private http: HttpClient
@@ -45,7 +44,7 @@ export class ApiService {
   }
 
   private apiUrl(path) {
-    const url = [this.baseUrl];
+    const url = [environment.apiUrl];
 
     return [...url, path]
       .filter(item => !!item)

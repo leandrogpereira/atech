@@ -58,6 +58,10 @@ export class PessoaFormComponent implements OnInit {
     .catch(error => console.log(error.error));
   }
 
+  get f() {
+    return this.form.controls;
+  }
+
   onSubmit() {
     if (this.form.valid) {
       if (this.id) {
@@ -72,30 +76,25 @@ export class PessoaFormComponent implements OnInit {
     }
   }
 
-  voltar() {
+  public voltar() {
     this.router.navigate(['/']);
   }
 
   public verificaEstadoCivil() {
-    if (this.form.get('estadoCivil').value === '1') {
+    if (this.f.estadoCivil.value === '1') {
       this.habilitaParceiro = true;
-      this.form.get('nomeParceiro').setValidators([Validators.required, Validators.minLength(5), FormValidations.somenteLetras]);
-      this.form.get('nomeParceiro').updateValueAndValidity();
-      this.form.get('dataNascimentoParceiro').setValidators([Validators.required]);
-      this.form.get('dataNascimentoParceiro').updateValueAndValidity();
+      this.f.nomeParceiro.setValidators([Validators.required, Validators.minLength(5), FormValidations.somenteLetras]);
+      this.f.nomeParceiro.updateValueAndValidity();
+      this.f.dataNascimentoParceiro.setValidators([Validators.required]);
+      this.f.dataNascimentoParceiro.updateValueAndValidity();
     } else {
+      this.f.nomeParceiro.setValue('');
+      this.f.dataNascimentoParceiro.setValue('');
       this.habilitaParceiro = false;
-      this.form.get('nomeParceiro').clearValidators();
-      this.form.get('nomeParceiro').updateValueAndValidity();
-      this.form.get('dataNascimentoParceiro').clearValidators();
-      this.form.get('dataNascimentoParceiro').updateValueAndValidity();
+      this.f.nomeParceiro.clearValidators();
+      this.f.nomeParceiro.updateValueAndValidity();
+      this.f.dataNascimentoParceiro.clearValidators();
+      this.f.dataNascimentoParceiro.updateValueAndValidity();
     }
-  }
-
-  public limpaInputParceiro() {
-    this.form.patchValue({
-      nomeParceiro: '',
-      dataNascimentoParceiro: ''
-    });
   }
 }
