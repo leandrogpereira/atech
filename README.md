@@ -1,5 +1,5 @@
 # Pessoas
-Cadastro, edição e lista com dados básicos de pessoas (nome, data de nascimento, estado civil e dados do parceiro) utilizando Angular v12 e JSON Server.
+Cadastro, edição e lista com dados básicos de pessoas (nome, data de nascimento, estado civil e dados do parceiro) utilizando Angular v11 e JSON Server.
 
 # Frontend
 
